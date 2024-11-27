@@ -10,23 +10,23 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 
 const intialHeight = chatInput.scrollHeight;
 
-const loadDataFromLocalStorage = () => {
-    const themeColor = localStorage.getItem("theme-color");
+// const loadDataFromLocalStorage = () => {
+//     // const themeColor = localStorage.getItem("theme-color");
 
-    const defaultText = `<div class="default-text">
-            <h1>ChatPulse</h1>
-            <h3>Hello Dear, How may I help you Today!</h3>
-            <p>Start conversation and Explore power of AI <br>And your Chat History will displayed here.</p>
-        </div>`;
+//     const defaultText = `<div class="default-text">
+//             <h1>ChatPulse</h1>
+//             <h3>Hello Dear, How may I help you Today!</h3>
+//             <p>Start conversation and Explore power of AI <br>And your Chat History will displayed here.</p>
+//         </div>`;
 
-    document.body.classList.toggle("light-mode", themeColor === "light_mode");
-    themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
+//     document.body.classList.toggle("light-mode", themeColor === "light_mode");
+//     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
 
-    chatContainer.innerHTML = localStorage.getItem("all-chats") || defaultText;
-    chatContainer.scrollTo(0, chatContainer.scrollHeight);
-}
+//     chatContainer.innerHTML = localStorage.getItem("all-chats") || defaultText;
+//     chatContainer.scrollTo(0, chatContainer.scrollHeight);
+// }
 
-loadDataFromLocalStorage();
+// loadDataFromLocalStorage();
 
 const createElement = (html, className) => {
     const chatDiv = document.createElement("div");
@@ -131,11 +131,11 @@ const handleOutgoingChat = () => {
     setTimeout(showTypingAnimation, 500);
 }
 
-themeButton.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-    localStorage.setItem("theme-color", themeButton.innerText);
-    themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
-});
+// themeButton.addEventListener("click", () => {
+//     document.body.classList.toggle("light-mode");
+//     // localStorage.setItem("theme-color", themeButton.innerText);
+//     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
+// });
 
 // deleteButton.addEventListener("click", () => {
 //     if(confirm("Are you sure, you want to delete all chats")) {
