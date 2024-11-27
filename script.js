@@ -137,12 +137,12 @@ themeButton.addEventListener("click", () => {
     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
 });
 
-deleteButton.addEventListener("click", () => {
-    if(confirm("Are you sure, you want to delete all chats")) {
-        // localStorage.removeItem("all-chats");
-        // loadDataFromLocalStorage();
-    }
-});
+// deleteButton.addEventListener("click", () => {
+//     if(confirm("Are you sure, you want to delete all chats")) {
+//         // localStorage.removeItem("all-chats");
+//         // loadDataFromLocalStorage();
+//     }
+// });
 
 chatInput.addEventListener("input", () => {
     chatInput.style.height = `${intialHeight}px`;
