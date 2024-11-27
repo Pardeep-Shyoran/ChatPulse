@@ -10,8 +10,8 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 
 const intialHeight = chatInput.scrollHeight;
 
-// const loadDataFromLocalStorage = () => {
-//     const themeColor = localStorage.getItem("theme-color");
+const loadDataFromLocalStorage = () => {
+    const themeColor = localStorage.getItem("theme-color");
 
     const defaultText = `<div class="default-text">
             <h1>ChatPulse</h1>
@@ -19,14 +19,14 @@ const intialHeight = chatInput.scrollHeight;
             <p>Start conversation and Explore power of AI <br>And your Chat History will displayed here.</p>
         </div>`;
 
-//     document.body.classList.toggle("light-mode", themeColor === "light_mode");
-//     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
+    document.body.classList.toggle("light-mode", themeColor === "light_mode");
+    themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
 
-//     chatContainer.innerHTML = localStorage.getItem("all-chats") || defaultText;
-//     chatContainer.scrollTo(0, chatContainer.scrollHeight);
-// }
+    chatContainer.innerHTML = localStorage.getItem("all-chats") || defaultText;
+    chatContainer.scrollTo(0, chatContainer.scrollHeight);
+}
 
-// loadDataFromLocalStorage();
+loadDataFromLocalStorage();
 
 const createElement = (html, className) => {
     const chatDiv = document.createElement("div");
@@ -133,7 +133,7 @@ const handleOutgoingChat = () => {
 
 themeButton.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
-    // localStorage.setItem("theme-color", themeButton.innerText);
+    localStorage.setItem("theme-color", themeButton.innerText);
     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
 });
 
