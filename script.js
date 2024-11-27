@@ -26,7 +26,7 @@ const loadDataFromLocalStorage = () => {
     chatContainer.scrollTo(0, chatContainer.scrollHeight);
 }
 
-loadDataFromLocalStorage();
+// loadDataFromLocalStorage();
 
 const createElement = (html, className) => {
     const chatDiv = document.createElement("div");
@@ -157,12 +157,3 @@ chatInput.addEventListener("keydown", (e) => {
 });
 
 sendButton.addEventListener("click", handleOutgoingChat);
-
-// Attach an event listener to the input field
-// chatInput.addEventListener("keypress", (event) => {
-//     if (event.key === "Enter") { 
-//         // Check if the pressed key is Enter
-//         event.preventDefault(); // Prevent default form submission behavior (if any)
-//         handleOutgoingChat(); // Call the send function
-//     }
-// });
