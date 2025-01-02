@@ -5,28 +5,28 @@ const deleteButton = document.querySelector("#delete_btn");
 const chatContainer = document.querySelector(".chat-container");
 
 let userText = null;
-const API_KEY = "AIzaSyCJILl6Um6C9Jkz68NjMBO3FCHAuJvILxQ";
+const API_KEY = "AIzaSyCdKpPQKbQFLpkYwQ7fqkFK6bZibz9ViaE";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const intialHeight = chatInput.scrollHeight;
 
-// const loadDataFromLocalStorage = () => {
-//     // const themeColor = localStorage.getItem("theme-color");
+const loadDataFromLocalStorage = () => {
+    const themeColor = localStorage.getItem("theme-color");
 
-//     const defaultText = `<div class="default-text">
-//             <h1>ChatPulse</h1>
-//             <h3>Hello Dear, How may I help you Today!</h3>
-//             <p>Start conversation and Explore power of AI <br>And your Chat History will displayed here.</p>
-//         </div>`;
+    const defaultText = `<div class="default-text">
+            <h1>ChatPulse</h1>
+            <h3>Hello Dear, How may I help you Today!</h3>
+            <p>Start conversation and Explore power of AI <br>And your Chat History will displayed here.</p>
+        </div>`;
 
-//     document.body.classList.toggle("light-mode", themeColor === "light_mode");
-//     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
+    document.body.classList.toggle("light-mode", themeColor === "light_mode");
+    themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
 
-//     chatContainer.innerHTML = localStorage.getItem("all-chats") || defaultText;
-//     chatContainer.scrollTo(0, chatContainer.scrollHeight);
-// }
+    chatContainer.innerHTML = localStorage.getItem("all-chats") || defaultText;
+    chatContainer.scrollTo(0, chatContainer.scrollHeight);
+}
 
-// loadDataFromLocalStorage();
+loadDataFromLocalStorage();
 
 const createElement = (html, className) => {
     const chatDiv = document.createElement("div");
@@ -34,6 +34,8 @@ const createElement = (html, className) => {
     chatDiv.innerHTML = html;
     return chatDiv;
 }
+
+
 
 // const processResponseText = (text) => {
 //     // Step 1: Remove any empty or improperly placed <b> tags
@@ -81,10 +83,10 @@ const getChatResponse = async (incomingChatDiv) => {
     incomingChatDiv.querySelector(".typing-animation").remove();
     incomingChatDiv.querySelector(".chat-details").appendChild(pElement);
     chatContainer.scrollTo(0, chatContainer.scrollHeight);
-    // localStorage.setItem("all-chats", chatContainer.innerHTML);
+    localStorage.setItem("all-chats", chatContainer.innerHTML);
 }
 
-const copyResponse = (copyBtn) =>{
+const copyResponse = (copyBtn) => {
     const responseTextElement = copyBtn.parentElement.querySelector("p");
     navigator.clipboard.writeText(responseTextElement.textContent);
     copyBtn.textContent = "done";
@@ -111,8 +113,8 @@ const showTypingAnimation = () => {
 
 const handleOutgoingChat = () => {
     userText = chatInput.value.trim();
-    // console.log(userText);
-    if(!userText) return;
+    console.log(userText);
+    if (!userText) return;
 
     chatInput.value = "";
     chatInput.style.height = `${intialHeight}px`;
@@ -131,18 +133,18 @@ const handleOutgoingChat = () => {
     setTimeout(showTypingAnimation, 500);
 }
 
-// themeButton.addEventListener("click", () => {
-//     document.body.classList.toggle("light-mode");
-//     // localStorage.setItem("theme-color", themeButton.innerText);
-//     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
-// });
+themeButton.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+    localStorage.setItem("theme-color", themeButton.innerText);
+    themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
+});
 
-// deleteButton.addEventListener("click", () => {
-//     if(confirm("Are you sure, you want to delete all chats")) {
-//         // localStorage.removeItem("all-chats");
-//         // loadDataFromLocalStorage();
-//     }
-// });
+deleteButton.addEventListener("click", () => {
+    if (confirm("Are you sure, you want to delete all chats")) {
+        localStorage.removeItem("all-chats");
+        loadDataFromLocalStorage();
+    }
+});
 
 chatInput.addEventListener("input", () => {
     chatInput.style.height = `${intialHeight}px`;
@@ -150,7 +152,7 @@ chatInput.addEventListener("input", () => {
 });
 
 chatInput.addEventListener("keydown", (e) => {
-    if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
+    if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
         e.preventDefault();
         handleOutgoingChat();
     }
