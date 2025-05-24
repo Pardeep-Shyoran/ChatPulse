@@ -5,8 +5,8 @@ const deleteButton = document.querySelector("#delete_btn");
 const chatContainer = document.querySelector(".chat-container");
 
 let userText = null;
-const API_KEY = "AIzaSyBuxKGXiN22VOx9tbsvaIJrB05RjW8JLAo";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+// const API_KEY = "AIzaSyBuxKGXiN22VOx9tbsvaIJrB05RjW8JLAo";
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBuxKGXiN22VOx9tbsvaIJrB05RjW8JLAo`;
 
 const intialHeight = chatInput.scrollHeight;
 
